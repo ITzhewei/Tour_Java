@@ -47,7 +47,6 @@ public class CreateGraph {
         List<Integer> populars = FileUtils.readintList("popular.txt");
         g.vNodeNum = vNodes.size();
         g.eNodeNum = ws.size();
-
         for (int i = 0; i < g.vNodeNum; ++i) {
             g.nodeList[i] = new VNode();
             g.nodeList[i].name = vNodes.get(i);
@@ -55,7 +54,6 @@ public class CreateGraph {
             g.nodeList[i].popularValue = populars.get(i);
             g.nodeList[i].firstNode = null;
         }
-        //定义两个
         String v1, v2;//两个顶点名
         int w;//顶点之间的距离
         for (int j = 0; j < g.eNodeNum; ++j) {

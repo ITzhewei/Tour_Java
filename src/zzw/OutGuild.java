@@ -8,8 +8,6 @@ import static zzw.CreateGraph.locateNode;
  * Created by john on 2016/11/21.
  */
 public class OutGuild {
-
-
     /**
      * 导游路线图
      */
@@ -18,13 +16,13 @@ public class OutGuild {
     static int k;
     static ENode p = new ENode();
 
-    static void DFS(ALGraph G, int v) {
+    static void dfs(ALGraph G, int v) {
         visited[v] = true;
         node1List[k++] = G.nodeList[v].name;
 
         for (p = G.nodeList[v].firstNode; p != null; p = p.nextENode)
             if (!visited[p.location]) {
-                DFS(G, p.location);
+                dfs(G, p.location);
                 p = G.nodeList[v].firstNode;
             }
     }
@@ -35,7 +33,7 @@ public class OutGuild {
             visited[v] = false;//初始化遍历顶点为没有被访问
         for (v = 0; v < G.vNodeNum; v++)
             if (!visited[v])//如果没有被访问就对其进行深度优先遍历
-                DFS(G, v);
+                dfs(G, v);
     }
 
     static boolean IsEdge(ALGraph G, String v1, String v2)//判断两个顶点之间是否有边

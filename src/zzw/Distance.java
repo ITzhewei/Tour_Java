@@ -14,7 +14,7 @@ public class Distance {
     /**
      * 求两个景点之间的最短路径,和最短距离
      */
-    static void ShortestPath(ALGraph G, int path[][], double D[][])//求最短路径
+    static void ShortestPath(ALGraph G, int path[][], int D[][])//求最短路径
     {
         int u, v, w;
         for (v = 0; v < G.vNodeNum; v++)
@@ -33,7 +33,7 @@ public class Distance {
                     }
     }
 
-    static void getMiniDistanse(ALGraph G1, int path[][], double D[][])//输出最短路径
+    static void getMiniDistanse(ALGraph G1, int path[][], int D[][])//输出最短路径
     {
         ShortestPath(G1, path, D);
         String A, B;
@@ -48,7 +48,7 @@ public class Distance {
         System.out.println("最短距离为：" + D[i][j]);
     }
 
-    static void OutPutShortestPath(ALGraph G, int path[][], double D[][], int i,
+    static void OutPutShortestPath(ALGraph G, int path[][], int D[][], int i,
                                    int j) {
         if (path[i][j] == i)
             System.out.println(G.nodeList[i].name + "--" + G.nodeList[j].name);//输出经过的最短路径上的边的两端顶点

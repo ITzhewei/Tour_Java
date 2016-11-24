@@ -5,37 +5,25 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Main {
-
     public static final int MAXNODENUM = 20;//定义图的最大节点数
     public static final int INFINITY = 32767;  //无穷远
     static CreateGraph graph = new CreateGraph();
-
     static Scanner scanner = new Scanner(System.in);
-
     static CreateGraph.ALGraph g1 = new CreateGraph.ALGraph();//图
     public static int a[][] = new int[8][9];
-
     public static void main(String[] args) throws Exception {
-
         CreateGraph.ALGraph g = new CreateGraph.ALGraph();//图
         g.nodeList = new CreateGraph.VNode[MAXNODENUM];
-
         CarGuild carGuild = new CarGuild();
         boolean createdG = true;//过滤
         int n;//输入
-
         boolean IsDetail = false;
-
         //path用来存储经过的路径，D用来存储两个顶点之间的距离
         int path[][] = new int[MAXNODENUM][MAXNODENUM];
-        double D[][] = new double[MAXNODENUM][MAXNODENUM];
-
+        int[][] D = new int[MAXNODENUM][MAXNODENUM];
         graph.showMenu();//菜单
-
         while (true) {
-
             System.out.println("请输入您要选择的菜单项：");
-
             n = scanner.nextInt();
             //判断是否已经创建了图
             n = isCreate(createdG, n);
@@ -53,6 +41,7 @@ public class Main {
                     break;
                 case 3:
                     OutGuild.OutTheTour(g, g1);//输出导游路线图
+                    OutGraph.OutputGraph(g1,true);
                     break;
                 case 4:
                     FindCycleRoad.findCycleRoad(g1);//输出导游路中的回路
